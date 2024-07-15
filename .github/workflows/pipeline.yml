@@ -33,7 +33,7 @@ jobs:
               working-directory: ./BlogList
               env:
                 MONGO_URI: ${{ secrets.MONGO_URI }}
-                PORT: ${{ secrets.PORT && secrets.PORT != '' ? parseInt(secrets.PORT) : 3000 }}
+                PORT: ${{ secrets.PORT || 3000 }}
             - name: Install frontend dependencies
               run: npm install
               working-directory: ./BlogList/frontend
