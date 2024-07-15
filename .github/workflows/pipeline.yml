@@ -16,20 +16,19 @@ jobs:
             - uses: actions/setup-node@v4
               with:
                 node-version: '20'
-            - name: Show the current directory
-              run: pwd
-            - name: Change to project directory
-              run: cd BlogListProject/BlogList
             - name: Install dependencies
               run: npm install
+              working-directory: BlogListProject/BlogList
             - name: Build server
               run: npm run build
             - name: Build frontend
-              run: cd frontend && npm run build
+              run: npm run build
+              working-directory: BlogListProject/BlogList/frontend
             - name: Discord Webhook Notify
               uses: rjstone/discord-webhook-notify@v1.0.4
               with:
                 webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+                working-directory: BlogListProject/BlogList
             - name: The job has succeeded
               if: ${{ success() }}
               run: echo "Success!"
