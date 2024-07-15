@@ -23,7 +23,7 @@ jobs:
               run: npm rebuild
               working-directory: ./BlogList
             - name: Build server
-              run: npm run dev
+              run: npm start
               working-directory: ./BlogList
             - name: Install frontend dependencies
               run: npm install
