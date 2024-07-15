@@ -16,6 +16,8 @@ jobs:
             - uses: actions/setup-node@v4
               with:
                 node-version: '20'
+            - name: Show the current directory
+              run: pwd
             - name: Change to project directory
               run: cd BlogListProject/BlogList
             - name: Install dependencies
