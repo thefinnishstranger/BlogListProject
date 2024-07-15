@@ -22,6 +22,12 @@ jobs:
             - name: Rebuild native modules
               run: npm rebuild
               working-directory: ./BlogList
+            - name: Remove bcrypt module
+              run: npm uninstall bcrypt
+              working-directory: ./BlogList
+            - name: Reinstall bcrypt module
+              run: npm install bcrypt
+              working-directory: ./BlogList
             - name: Build server
               run: npm start
               working-directory: ./BlogList
