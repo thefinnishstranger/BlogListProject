@@ -16,12 +16,14 @@ jobs:
             - uses: actions/setup-node@v4
               with:
                 node-version: '20'
+            - name: Change to project directory
+              run: cd BlogListProject/BlogList
             - name: Install dependencies
-              run: cd BlogList && npm install
+              run: npm install
             - name: Build server
               run: npm run build
             - name: Build frontend
-              run: cd BlogList && cd frontend && npm run build
+              run: cd frontend && npm run build
             - name: Discord Webhook Notify
               uses: rjstone/discord-webhook-notify@v1.0.4
               with:
