@@ -18,17 +18,17 @@ jobs:
                 node-version: '20'
             - name: Install dependencies
               run: npm install
-              working-directory: BlogListProject/BlogList
+              working-directory: BlogList
             - name: Build server
               run: npm run build
             - name: Build frontend
               run: npm run build
-              working-directory: BlogListProject/BlogList/frontend
+              working-directory: BlogList/frontend
             - name: Discord Webhook Notify
               uses: rjstone/discord-webhook-notify@v1.0.4
               with:
                 webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
-                working-directory: BlogListProject/BlogList
+                working-directory: BlogList
             - name: The job has succeeded
               if: ${{ success() }}
               run: echo "Success!"
